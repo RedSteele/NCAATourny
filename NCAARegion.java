@@ -10,7 +10,8 @@ class NCAARegion {
 	private int teamnum;
 	
 	public NCAARegion(int teamnum, String[] teams) {
-		
+		this.teamnum=teamnum;
+		this.teams = teams;
 	}
 
 
