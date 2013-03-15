@@ -3,7 +3,6 @@
  *		sets up a game between two teams and computes the winner
  * 
  */
-
 public class NCAAGame {
 	
 	private Team a;
@@ -38,6 +37,19 @@ public class NCAAGame {
 		abWinPercent = (aWinPercent*(1-bWinPercent))/((aWinPercent*(1-bWinPercent)) + (bWinPercent*(1-aWinPercent)));
 	}
 
-
-
+	/**
+	 * computeWinner
+	 * 		calculates and returns the winner of the game using a's calculated winning percentage against b
+	 *
+	 * @return  Team;
+	 */
+	public Team computeWinner(){
+		double randomNum = Math.random();
+		if(randomNum <= abWinPercent){
+			winner = a;
+		}else{
+			winner = b;
+		}
+		return winner;
+	}
 }
