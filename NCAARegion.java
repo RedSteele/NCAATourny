@@ -6,7 +6,7 @@
 
 class NCAARegion {
 
-	private String[] teams;
+	private NCAATeam[] teams;
 	private int teamnum;
 	
 	/**
@@ -30,7 +30,9 @@ class NCAARegion {
 	 * @param n - the team location
 	 */
 	public NCAATeam teamAt(int n) {
-		
+		return teams[n];
 	}
+
+	public NCAATeam
 
 }
