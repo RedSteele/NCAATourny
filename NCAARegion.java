@@ -17,7 +17,7 @@ class NCAARegion {
 	 * @param  teamnum - number of teams in the region
 	 * @param  teams - the array of teams in the region
 	 */
-	public NCAARegion(int teamnum, String[] teams) {
+	public NCAARegion(int teamnum, NCAATeam[] teams) {
 		this.teamnum=teamnum;
 		this.teams = teams;
 	}
