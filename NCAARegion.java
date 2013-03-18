@@ -33,6 +33,15 @@ class NCAARegion {
 		return teams[n];
 	}
 
-	public NCAATeam
+	/**
+	*teams
+	*
+	*		returns the teams
+	*/
+	public NCAATeam[] teams() {
+		return teams;
+	}
+
+
 
 }
