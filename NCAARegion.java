@@ -25,19 +25,19 @@ public class NCAARegion{
 		this.teams = teams;
 		for(int j = 0; j<numGames; j++){
 			a = teams[j];
-			b = teams[16-j];
+			b = teams[15-j];
 			games[j] = new Game(a,b);
 		}	
 	}
 
 	/**
-	 * updateRegion
-	 * 		plays the games until final two games(final four teams) are determined
+	 * playRegion
+	 * 		plays the games until final, winning team from this region is found
 	 *
-	 * @return  NCAAGame[]
+	 * @return  NCAATeam
 	 */
-	public NCAAGame[] updateRegion(){
-		while(numTeams > 4){
+	public NCAATeam playRegion(){
+		while(numTeams > 1){
 			numTeams = numTeams/2;
 			numGames = numGames/2;
 			NCAATeam[] newTeams = new NCAATeam[numTeams];
@@ -51,6 +51,6 @@ public class NCAARegion{
 				newGames[j] = new Game(a,b);
 			}	
 		}
-		return newGames;
+		return newGames[0];
 	}	
 }
