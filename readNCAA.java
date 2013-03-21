@@ -1,21 +1,27 @@
 import java.util.Scanner;
 import java.io.*;
 
-
 public class readNCAA {
+	private static int counter = 0;
+	private static int valuePerTeam=1;
+	
+	public static String[][] returnTeams() throws FileNotFoundException{
+		String[][] team = new String[64][5];
+		Scanner reader = new Scanner(new File("ncaa_data_2013.csv"));
 
-	public static void main(String[] args) throws FileNotFoundException {
-		Scanner reader = new Scanner(new File("ncaa_data.csv"));
-
-		while (reader.hasNextLIne()){
+		while (reader.hasNextLine() && counter<63){
 			String next = reader.nextLine();
 			String[] values = next.split(",");
-
-			for (String s : values) {
-				System.out.println(s + " ");
+			
+			if(valuePerTeam<5){
+				team[counter][valuePerTeam] = values[valuePerTeam];
+				valuePerTeam++;
 			}
-
-			System.out.println();
+			if(valuePerTeam == 5){
+				counter++;
+				valuePerTeam=1;
+			}
 		}
-	}	
+		return team;
+	}
 }
