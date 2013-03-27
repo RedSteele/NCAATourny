@@ -60,12 +60,24 @@ public class NCAAGui extends JFrame{
 		int centerX = winWidth/2;
 		int centerY = winHeight/2;
 
-		int horizLineLength = winWidth/12;
-		int vertLineLength = winHeight/7;
+		int horizLineLength = winWidth/12 - 15;
+		int vertLineLength = winHeight/8 - 5;
 		int lineStartHeight = centerY;
 		int lineStartWidth = centerX;
 	
-		drawLines(g, lineStartHeight, lineStartWidth, horizLineLength, vertLineLength, 0);
+		//draws the 4 regions
+		drawLines(g, centerY/2 + 25, centerX - 130, horizLineLength, vertLineLength, 5);
+		drawLines(g, centerY + 195, centerX - 130, horizLineLength, vertLineLength, 5);
+		drawLines(g, centerY/2 + 25, centerX + 130, -horizLineLength, vertLineLength, 5);
+		drawLines(g, centerY + 195, centerX + 130, -horizLineLength, vertLineLength, 5);
+
+		//draws the center bracket
+		g.drawLine(centerX, centerY, centerX - 130, centerY);
+		g.drawLine(centerX, centerY, centerX + 130, centerY);
+		g.drawLine(centerX + 130, centerY, centerX + 130, centerY/2+25);
+		g.drawLine(centerX + 130, centerY, centerX + 130, centerY + 195);
+		g.drawLine(centerX - 130, centerY, centerX - 130, centerY/2 + 25);
+		g.drawLine(centerX - 130, centerY, centerX - 130, centerY+195);
 	}
 
 	/**
@@ -85,7 +97,7 @@ public class NCAAGui extends JFrame{
 	**/
 	public void drawLines(Graphics g, int lineY, int lineX, int horizLineLength, int vertLineLength, int counter){
 		//base case
-		if(counter == 5){
+		if(counter <= 0){
 			return;
 		}
 
@@ -95,17 +107,9 @@ public class NCAAGui extends JFrame{
 		g.drawLine(lineX - horizLineLength, lineY, lineX - horizLineLength, lineY - vertLineLength);
 
 		//recursive step
-		//drawLines(g, lineY + vertLineLength, lineX - horizLineLength, horizLineLength - 25, vertLineLength - 25, counter++);
-		//drawLines(g, lineY - vertLineLength, lineX - horizLineLength, horizLineLength, vertLineLength, counter++);
+		drawLines(g, lineY + vertLineLength, lineX - horizLineLength, horizLineLength, vertLineLength/2, counter-1);
+		drawLines(g, lineY - vertLineLength, lineX - horizLineLength, horizLineLength, vertLineLength/2, counter-1);
 
-		//draw step 2
-		g.drawLine(lineX, lineY, lineX + horizLineLength, lineY);
-		g.drawLine(lineX + horizLineLength, lineY, lineX + horizLineLength, lineY + vertLineLength);
-		g.drawLine(lineX + horizLineLength, lineY, lineX + horizLineLength, lineY - vertLineLength);
-
-		//recursive step 2
-		//drawLines(g, lineY + vertLineLength, lineX + horizLineLength, horizLineLength, vertLineLength, counter++);
-		//drawLines(g, lineY - vertLineLength, lineX + horizLineLength, horizLineLength, vertLineLength, counter++);
 	}
 
 }
