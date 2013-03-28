@@ -24,8 +24,8 @@ public class NCAAGame {
 	public NCAAGame(Team a, Team b){
 		this.a = a;
 		this.b = b;
-		aWinPercent = Double.parseDouble(a.getWin());
-		bWinPercent = Double.parseDouble(b.getWin());
+		aWinPercent = Double.parseDouble(a.getWinPercent());
+		bWinPercent = Double.parseDouble(b.getWinPercent());
 	}
 
 	/**
