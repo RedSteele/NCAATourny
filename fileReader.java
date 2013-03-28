@@ -5,6 +5,8 @@
 **/
 
 import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class fileReader{
 	
@@ -15,7 +17,7 @@ public class fileReader{
 	*Constructor
 	*
 	**/
-	public fileReader(){
+	public fileReader() throws FileNotFoundException{
 		teams = new String[64][5];
 		reader = new Scanner(new File("ncaa_data_2013.csv"));
 	}

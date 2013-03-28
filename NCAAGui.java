@@ -42,6 +42,8 @@ public class NCAAGui extends JFrame{
 	**/
 	public static void main(String[] args){
 		NCAAGui gui = new NCAAGui();
+		Bracket bracket = new Bracket();
+		System.out.println(bracket.playBracket());
 	}
 
 	/**

@@ -19,7 +19,7 @@ public class NCAATeam{
 	*
 	* @param teamNumber - the number of the team you want to create(1-64) as designated by the file being read in from
 	**/
-	public NCAATeam(int teamNumber){
+	public NCAATeam(int teamNumber) throws FileNotFoundException{
 		int teamNum = teamNumber - 1;
 		fileReader reader = new fileReader();
 		String[][] teams = reader.getTeams();

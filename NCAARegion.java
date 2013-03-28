@@ -4,14 +4,17 @@
  * 
  */
 
-import java.util.ArrayList;
+import java.io.FileNotFoundException;
 
 public class NCAARegion{
 	
+	private String region;
 	private NCAATeam[] teams;
 	private int numTeams = 16;
 	private int numGames = 8;
 	private NCAAGame[] games = new NCAAGame[8];
+	private NCAATeam a;
+	private NCAATeam b;
 
 	/**
 	 * Constructor
@@ -21,12 +24,13 @@ public class NCAARegion{
 	 * @param  region - name(in String format) of the region
 	 * 
 	 */
-	public NCAARegion(NCAATeam[] teams){
+	public NCAARegion(NCAATeam[] teams, String region){
+		this.region = region;
 		this.teams = teams;
 		for(int j = 0; j<numGames; j++){
 			a = teams[j];
 			b = teams[15-j];
-			games[j] = new Game(a,b);
+			games[j] = new NCAAGame(a,b);
 		}	
 	}
 
@@ -36,21 +40,23 @@ public class NCAARegion{
 	 *
 	 * @return  NCAATeam
 	 */
-	public NCAATeam playRegion(){
+	public NCAATeam playRegion() throws FileNotFoundException{
+		NCAATeam winner = new NCAATeam(2);
 		while(numTeams > 1){
 			numTeams = numTeams/2;
 			numGames = numGames/2;
 			NCAATeam[] newTeams = new NCAATeam[numTeams];
 			NCAAGame[] newGames = new NCAAGame[numGames];
-			for(int i = 0; i < games.length(); i++){
+			for(int i = 0; i < games.length; i++){
 				newTeams[i] = games[i].computeWinner();
 			}
 			for(int j = 0; j<numGames; j++){
 				a = newTeams[j];
 				b = newTeams[numTeams-j];
-				newGames[j] = new Game(a,b);
-			}	
+				newGames[j] = new NCAAGame(a,b);
+			}
+			winner = newGames[0].computeWinner();	
 		}
-		return newGames[0];
+		return winner;
 	}	
 }

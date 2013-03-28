@@ -5,9 +5,9 @@
  */
 public class NCAAGame {
 	
-	private Team a;
-	private Team b;
-	private Team winner;
+	private NCAATeam a;
+	private NCAATeam b;
+	private NCAATeam winner;
 
 	private double aWinPercent;
 	private double bWinPercent;
@@ -21,7 +21,7 @@ public class NCAAGame {
 	 * @param  b - The other team playing in this game
 	 * 
 	 */
-	public NCAAGame(Team a, Team b){
+	public NCAAGame(NCAATeam a, NCAATeam b){
 		this.a = a;
 		this.b = b;
 		aWinPercent = Double.parseDouble(a.getWinPercent());
@@ -43,7 +43,8 @@ public class NCAAGame {
 	 *
 	 * @return  Team;
 	 */
-	public Team computeWinner(){
+	public NCAATeam computeWinner(){
+		calcWinPercentA();
 		double randomNum = Math.random();
 		if(randomNum <= abWinPercent){
 			winner = a;
