@@ -40,7 +40,7 @@ public class Bracket{
 			}else if(totalTeams[j].getRegion().equals("East")){
 				teamsInEast[eastCount] = totalTeams[j];
 				eastCount++;
-			}else{
+			}else if(totalTeams[j].getRegion().equals("West")){
 				teamsInWest[westCount] = totalTeams[j];
 				westCount++;
 			}
