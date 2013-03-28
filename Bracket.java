@@ -31,7 +31,7 @@ public class Bracket{
 			totalTeams[i] = new NCAATeam(i+1);
 		}
 		for(int j = 0; j<totalTeams.length; j++){
-			if(totalTeams[j].getRegion().equals("North")){
+			if(totalTeams[j].getRegion().equals("Midwest")){
 				teamsInNorth[northCount] = totalTeams[j];
 				northCount++;
 			}else if(totalTeams[j].getRegion().equals("South")){

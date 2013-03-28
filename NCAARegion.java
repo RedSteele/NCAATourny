@@ -42,7 +42,7 @@ public class NCAARegion{
 	 */
 	public NCAATeam playRegion() throws FileNotFoundException{
 		NCAATeam winner = new NCAATeam(2);
-		while(numTeams > 1){
+		while(games.length > 1){
 			numTeams = numTeams/2;
 			numGames = numGames/2;
 			NCAATeam[] newTeams = new NCAATeam[numTeams];
@@ -50,11 +50,12 @@ public class NCAARegion{
 			for(int i = 0; i < games.length; i++){
 				newTeams[i] = games[i].computeWinner();
 			}
-			for(int j = 0; j<numGames; j++){
+			for(int j = 0; j<numTeams; j+=2){
 				a = newTeams[j];
-				b = newTeams[numTeams-j];
-				newGames[j] = new NCAAGame(a,b);
+				b = newTeams[j+1];
+				newGames[j/2] = new NCAAGame(a,b);
 			}
+			games = newGames;
 			winner = newGames[0].computeWinner();	
 		}
 		return winner;
