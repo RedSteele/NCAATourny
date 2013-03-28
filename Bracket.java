@@ -57,6 +57,6 @@ public class Bracket{
 		eastFinal = regions[2].playRegion();
 		westFinal = regions[3].playRegion();
 
-		return northFinal.getName();    // temporary return; this method is still not finished
+		return southFinal.getName();    // temporary return; this method is still not finished
 	}
 }
