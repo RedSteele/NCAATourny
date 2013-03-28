@@ -57,6 +57,10 @@ public class Bracket{
 		eastFinal = regions[2].playRegion();
 		westFinal = regions[3].playRegion();
 
-		return southFinal.getName();    // temporary return; this method is still not finished
+		NCAAGame midwestvwest = new NCAAGame(northFinal, westFinal);
+		NCAAGame southveast = new NCAAGame(southFinal, eastFinal);
+		NCAAGame winner = new NCAAGame(midwestvwest.computeWinner(), southveast.computeWinner());
+
+		return winner.computeWinner().getName();    
 	}
 }
