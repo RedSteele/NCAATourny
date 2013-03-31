@@ -46,18 +46,12 @@ public class NCAAGame {
 	 */
 	public NCAATeam computeWinner(){
 		calcWinPercentA();
-		double randomNum = 0;
-		double samples = Math.random();
-		// for(int i = 0; i<samples; i++){
-		// 	randomNum += Math.random();
-		// 	try{
-		// 		Thread.sleep((int)(Math.random() * 10));
-		// 	}
-		// 	catch(Exception e){
-
-		// 	}
-		// }
-		// randomNum = randomNum/samples;
+		double randomNum = Math.random();
+		double samples = 100;
+		for(int i = 0; i<samples; i++){
+		 	randomNum += Math.random();
+		}
+		randomNum = randomNum/samples;
 		if(randomNum <= abWinPercent){
 			winner = a;
 		}else{
