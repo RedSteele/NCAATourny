@@ -10,7 +10,6 @@ import java.awt.Toolkit;
 import java.awt.Graphics;
 
 public class NCAAGui extends JFrame{
-
 	
 	/**
 	*	Constructor
@@ -78,6 +77,7 @@ public class NCAAGui extends JFrame{
 		g.drawLine(centerX + 130, centerY, centerX + 130, centerY + 195);
 		g.drawLine(centerX - 130, centerY, centerX - 130, centerY/2 + 25);
 		g.drawLine(centerX - 130, centerY, centerX - 130, centerY+195);
+
 	}
 
 	/**

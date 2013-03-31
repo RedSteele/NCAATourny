@@ -59,5 +59,5 @@ public class NCAARegion{
 			winner = newGames[0].computeWinner();	
 		}
 		return winner;
-	}	
+	}
 }
